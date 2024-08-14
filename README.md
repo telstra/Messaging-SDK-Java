@@ -68,7 +68,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.telstra.messaging</groupId>
   <artifactId>telstra-messaging</artifactId>
-  <version>3.0-SNAPSHOT</version>
+  <version>3.1-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -615,7 +615,7 @@ The function `messages.send` can be used to send a message.
 
 It takes an object with following properties as argument:
 
--   `to`: The destination address, expected to be a phone number of the form `+614XXXXXXXX` or `04XXXXXXXX`.
+-   `to`: The destination address list, expected to be a phone number of the form `+614XXXXXXXX` or `04XXXXXXXX`.
 -   `from`: This will be either one of your Virtual Numbers or your senderName.
 -   `messageContent` (Either one of messageContent or multimedia is required): The content of the message.
 -   `multimedia` (Either one of messageContent or multimedia is required): MMS multimedia content.
@@ -636,7 +636,7 @@ It returns an object with the following properties:
 
 -   `messageId`: Use this UUID with our other endpoints to fetch, update or delete the message.
 -   `status`: The status will be either queued, sent, delivered or expired.
--   `to`: The recipient's mobile number(s).
+-   `to`: The list of recipient's mobile number(s).
 -   `from`: This will be either one of your Virtual Numbers or your senderName.
 -   `messageContent`: The content of the message.
 -   `multimedia`: The multimedia content of the message (MMS only).
@@ -662,59 +662,65 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 try{
-	ApiClient defaultClient = new ApiClient();
-	ApiClient apiClient = getAuthToken(defaultClient);
-    	MessagesApi messagesApi = new MessagesApi(apiClient);
-	String to = "0411220643";
-	String from = "0400000004";
-	String messageContent = "Hello customer, this is from CBA to confirme your offer!";
-	Multimedia multimedia = new Multimedia();
-	String type = "image/jpeg";
-	String fileName = "image/jpeg";
-	String payload =  "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
-	multimedia.setType(type);
-	multimedia.setFileName(fileName);
-	multimedia.setPayload(payload);
-	List<Multimedia> multimediaList = new ArrayList<>();
-	multimediaList.add(multimedia);
-	Integer retryTimeout = 10;
-	String scheduleSend = "2023-09-11T03:48:47.096Z";
-	Boolean deliveryNotification = false;
-	String statusCallbackUrl = "http://www.example.com";
-	List<String> tagsList = new ArrayList<>();
-	tagsList.add("laborum");
-	tagsList.add("esse");
-	tagsList.add("irure Lorem");
-	tagsList.add("dolore aliqu");
-	tagsList.add("pariatur do proident magna ut");
-	tagsList.add("id sunt");
-	tagsList.add("u");
-	tagsList.add("tempor velit minim");
-	tagsList.add("sit dolo");
-	tagsList.add("laborum qui");
+    ApiClient defaultClient = new ApiClient();
+    ApiClient apiClient = getAuthToken(defaultClient);
+    MessagesApi messagesApi = new MessagesApi(apiClient);
     
-    	SendMessagesRequest sendMessagesRequest = new SendMessagesRequest()
-			.to(to)
-			.from(from)
-			.messageContent(messageContent)
-			.multimedia(multimediaList)
-			.retryTimeout(retryTimeout)
-			.scheduleSend(scheduleSend)
-			.deliveryNotification(deliveryNotification)
-			.statusCallbackUrl(statusCallbackUrl)
-			.tags(tagsList);
+    List<String> toList = new ArrayList<>();
+    toList.add("0400000001");
+    toList.add("0400000002");
+    String from = "0400000001";
+    String messageContent = "Hello customer, this is from CBA to confirme your offer!";
     
-	MessageSent response = messagesApi.sendMessages(sendMessagesRequest);
-	System.out.println(response);
-	assertNotNull(response.getMessageId());
-
+    Multimedia multimedia = new Multimedia();
+    String type = "image/jpeg";
+    String fileName = "image/jpeg";
+    String payload =  "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
+    multimedia.setType(type);
+    multimedia.setFileName(fileName);
+    multimedia.setPayload(payload);
+    List<Multimedia> multimediaList = new ArrayList<>();
+    multimediaList.add(multimedia);
+    
+    Integer retryTimeout = 10;
+    String scheduleSend = "2024-08-15T20:48:47.096Z";
+    Boolean deliveryNotification = false;
+    String statusCallbackUrl = "http://www.example.com";
+    List<String> tagsList = new ArrayList<>();
+                tagsList.add("laborum");
+                tagsList.add("esse");
+                tagsList.add("irure Lorem");
+                tagsList.add("dolore aliqu");
+                tagsList.add("pariatur do proident magna ut");
+                tagsList.add("id sunt");
+                tagsList.add("u");
+                tagsList.add("tempor velit minim");
+                tagsList.add("sit dolo");
+                tagsList.add("laborum qui");
+    
+    SendMessagesRequest sendMessagesRequest = new SendMessagesRequest()
+            .to(toList)
+            .from(from)
+            .messageContent(messageContent)
+            .multimedia(multimediaList)
+            .retryTimeout(retryTimeout)
+            .scheduleSend(scheduleSend)
+            .deliveryNotification(deliveryNotification)
+            .statusCallbackUrl(statusCallbackUrl)
+            .tags(tagsList);
+    
+    
+    MessageSent response = messagesApi.sendMessages(sendMessagesRequest);
+                System.out.println(response);
+    assertNotNull(response.getMessageId());
+        
 } catch (ApiException e) {
-	System.err.println("Exception when calling MessagesApi");
-	System.err.println("Status code: " + e.getCode());
-	System.err.println("Reason: " + e.getResponseBody());
-	System.err.println("Response headers: " + e.getResponseHeaders());
-	e.printStackTrace();
-}	
+    System.err.println("Exception when calling MessagesApi");
+        System.err.println("Status code: " + e.getCode());
+    System.err.println("Reason: " + e.getResponseBody());
+    System.err.println("Response headers: " + e.getResponseHeaders());
+    e.printStackTrace();
+}
 
 ```
 

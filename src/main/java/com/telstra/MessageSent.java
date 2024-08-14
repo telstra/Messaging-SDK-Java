@@ -30,8 +30,7 @@ import org.threeten.bp.OffsetDateTime;
 
 public class MessageSent {
   @SerializedName("messageId")
-  //private List<String> messageId = null;
-  private UUID messageId = null;
+  private List<UUID> messageId = null;
 
   /**
    * The status will be either queued, sent, delivered, expired or undeliverable.
@@ -81,7 +80,7 @@ public class MessageSent {
   private StatusEnum status = null;
 
   @SerializedName("to")
-  private String to = null;
+  private List<String> to = null;
 
   @SerializedName("from")
   private String from = null;
@@ -107,7 +106,7 @@ public class MessageSent {
   @SerializedName("tags")
   private List<String> tags = null;
 
-  public MessageSent messageId(UUID messageId) {
+  public MessageSent messageId(List<UUID> messageId) {
     this.messageId = messageId;
     return this;
   }
@@ -117,11 +116,11 @@ public class MessageSent {
    * @return messageId
   **/
   @Schema(description = "Use this UUID with our other endpoints to fetch, update or delete the message.")
-  public UUID getMessageId() {
+  public List<UUID> getMessageId() {
     return messageId;
   }
 
-  public void setMessageId(UUID messageId) {
+  public void setMessageId(List<UUID> messageId) {
     this.messageId = messageId;
   }
 
@@ -143,8 +142,16 @@ public class MessageSent {
     this.status = status;
   }
 
-  public MessageSent to(String to) {
+  public MessageSent to(List<String> to) {
     this.to = to;
+    return this;
+  }
+
+  public MessageSent addToItem(String toItem) {
+    if (this.to == null) {
+      this.to = new ArrayList<String>();
+    }
+    this.to.add(toItem);
     return this;
   }
 
@@ -153,11 +160,11 @@ public class MessageSent {
    * @return to
   **/
   @Schema(description = "The recipient's mobile number(s).")
-  public String getTo() {
+  public List<String> getTo() {
     return to;
   }
 
-  public void setTo(String to) {
+  public void setTo(List<String> to) {
     this.to = to;
   }
 
