@@ -21,6 +21,8 @@ import java.util.List;
 import static com.telstra.messaging.AuthenticationApi.getAuthToken;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import java.time.ZonedDateTime;
+
 
 
 /**
@@ -56,7 +58,7 @@ public class MessagesApiTest {
         try{
             ApiClient apiClient = getAuthToken(defaultClient);
             MessagesApi messagesApi = new MessagesApi(apiClient);
-            UUID messageId = UUID.fromString("119be970-4c71-11ee-a651-ad71114ff6eb");
+            UUID messageId = UUID.fromString("e15795c1-593f-11ef-be6c-ad62561304a2");
 
             messagesApi.deleteMessageById(messageId);
 
@@ -78,7 +80,7 @@ public class MessagesApiTest {
         try{
             ApiClient apiClient = getAuthToken(defaultClient);
             MessagesApi messagesApi = new MessagesApi(apiClient);
-            UUID messageId = UUID.fromString("3f58be60-4c71-11ee-a5b2-b5976390898d");
+            UUID messageId = UUID.fromString("b6980a40-53b8-11ef-8c15-dfa116f49bba");
 
             MessageGet response = messagesApi.getMessageById(messageId);
             System.out.println(response);
@@ -127,6 +129,7 @@ public class MessagesApiTest {
      * Send an SMS/MMS to a mobile number, or to multiple mobile numbers.  Free Trial users can message to up to 10 unique recipient numbers for free. The first five recipients will be automatically added to your Free Trial Numbers list. Need more? Just use the POST /free-trial-numbers call to add another five.
      *          if the Api call fails
      */
+    //@Test
     @Ignore
     public void sendMessagesTest() {
 
@@ -134,8 +137,10 @@ public class MessagesApiTest {
             ApiClient apiClient = getAuthToken(defaultClient);
             MessagesApi messagesApi = new MessagesApi(apiClient);
 
-            String to = "0400000001";
-            String from = "0428180739";
+            List<String> toList = new ArrayList<>();
+            toList.add("0400000001");
+            toList.add("0400000002");
+            String from = "0400000001";
             String messageContent = "Hello customer, this is from CBA to confirme your offer!";
 
             Multimedia multimedia = new Multimedia();
@@ -150,7 +155,11 @@ public class MessagesApiTest {
 
             Integer retryTimeout = 10;
 
-            String scheduleSend = "2023-09-26T20:48:47.096Z";
+            String scheduleSend = "2024-08-15T20:48:47.096Z";
+            ZonedDateTime zdt = ZonedDateTime.parse(scheduleSend);
+            ZonedDateTime zdtPlusTwoDays = zdt.plusDays(2);
+            scheduleSend = zdtPlusTwoDays.toString();
+
             Boolean deliveryNotification = false;
             String statusCallbackUrl = "http://www.example.com";
             List<String> tagsList = new ArrayList<>();
@@ -166,7 +175,7 @@ public class MessagesApiTest {
             tagsList.add("laborum qui");
 
             SendMessagesRequest sendMessagesRequest = new SendMessagesRequest()
-                    .to(to)
+                    .to(toList)
                     .from(from)
                     .messageContent(messageContent)
                     .multimedia(multimediaList)
@@ -202,7 +211,7 @@ public class MessagesApiTest {
         try{
             ApiClient apiClient = getAuthToken(defaultClient);
             MessagesApi messagesApi = new MessagesApi(apiClient);
-            UUID messageId = UUID.fromString("e31106b0-5c35-11ee-a710-0fd7aacbc74b");
+            UUID messageId = UUID.fromString("88ed8550-59cd-11ef-be6b-3de6ec7e1aaa");
 
             String to = "0400000001";
             String from = "0400000001";
@@ -220,7 +229,11 @@ public class MessagesApiTest {
 
             Integer retryTimeout = 10;
 
-            String scheduleSend = "2023-09-26T20:48:47.096Z";
+            String scheduleSend = "2024-08-15T20:48:47.096Z";
+            ZonedDateTime zdt = ZonedDateTime.parse(scheduleSend);
+            ZonedDateTime zdtPlusTwoDays = zdt.plusDays(2);
+            scheduleSend = zdtPlusTwoDays.toString();
+
             Boolean deliveryNotification = false;
             String statusCallbackUrl = "http://www.example.com";
             List<String> tagsList = new ArrayList<>();
@@ -271,7 +284,7 @@ public class MessagesApiTest {
         try{
             ApiClient apiClient = getAuthToken(defaultClient);
             MessagesApi messagesApi = new MessagesApi(apiClient);
-            UUID messageId = UUID.fromString("e31106b0-5c35-11ee-a710-0fd7aacbc74b");
+            UUID messageId = UUID.fromString("88ed8550-59cd-11ef-be6b-3de6ec7e1aaa");
 
             UpdateMessageTagsRequest updateMessageTagsRequest = new UpdateMessageTagsRequest();
             updateMessageTagsRequest.addTagsItem("marketing");

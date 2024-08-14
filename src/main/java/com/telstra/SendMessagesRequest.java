@@ -28,7 +28,8 @@ import java.util.HashSet;
 public class SendMessagesRequest {
   public static final String SERIALIZED_NAME_TO = "to";
   @SerializedName(SERIALIZED_NAME_TO)
-  private String to;
+  //private String to;
+  private List<String> to;
 
   public static final String SERIALIZED_NAME_FROM = "from";
   @SerializedName(SERIALIZED_NAME_FROM)
@@ -65,8 +66,16 @@ public class SendMessagesRequest {
   public SendMessagesRequest() {
   }
 
-  public SendMessagesRequest to(String to) {
+  public SendMessagesRequest to(List<String> to) {
     this.to = to;
+    return this;
+  }
+
+  public SendMessagesRequest addToItem(String toItem) {
+    if (this.to == null) {
+      this.to = new ArrayList<>();
+    }
+    this.to.add(toItem);
     return this;
   }
 
@@ -74,12 +83,12 @@ public class SendMessagesRequest {
    * Get to
    * @return to
   **/
-  public String getTo() {
+  public List<String> getTo() {
     return to;
   }
 
 
-  public void setTo(String to) {
+  public void setTo(List<String> to) {
     this.to = to;
   }
 
