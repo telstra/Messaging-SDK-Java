@@ -22,8 +22,8 @@ import static com.telstra.messaging.AuthenticationApi.getAuthToken;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import java.time.ZonedDateTime;
-
-
+import java.time.format.DateTimeFormatter;
+import java.time.ZoneOffset;
 
 /**
  * API tests for MessagesApi
@@ -155,10 +155,10 @@ public class MessagesApiTest {
 
             Integer retryTimeout = 10;
 
-            String scheduleSend = "2024-08-15T20:48:47.096Z";
-            ZonedDateTime zdt = ZonedDateTime.parse(scheduleSend);
+            ZonedDateTime zdt = ZonedDateTime.now(ZoneOffset.UTC);
             ZonedDateTime zdtPlusTwoDays = zdt.plusDays(2);
-            scheduleSend = zdtPlusTwoDays.toString();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX");
+            String scheduleSend = zdtPlusTwoDays.format(formatter);
 
             Boolean deliveryNotification = false;
             String statusCallbackUrl = "http://www.example.com";
@@ -229,10 +229,10 @@ public class MessagesApiTest {
 
             Integer retryTimeout = 10;
 
-            String scheduleSend = "2024-08-15T20:48:47.096Z";
-            ZonedDateTime zdt = ZonedDateTime.parse(scheduleSend);
+            ZonedDateTime zdt = ZonedDateTime.now(ZoneOffset.UTC);
             ZonedDateTime zdtPlusTwoDays = zdt.plusDays(2);
-            scheduleSend = zdtPlusTwoDays.toString();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX");
+            String scheduleSend = zdtPlusTwoDays.format(formatter);
 
             Boolean deliveryNotification = false;
             String statusCallbackUrl = "http://www.example.com";

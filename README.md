@@ -68,7 +68,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.telstra.messaging</groupId>
   <artifactId>telstra-messaging</artifactId>
-  <version>3.1-SNAPSHOT</version>
+  <version>3.2-SNAPSHOT</version>
 </dependency>
 ```
 

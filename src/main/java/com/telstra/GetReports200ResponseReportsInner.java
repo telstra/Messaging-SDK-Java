@@ -12,13 +12,14 @@
 
 package com.telstra;
 
+
 import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
+
 /**
  * GetReports200ResponseReportsInner
  */
@@ -35,7 +36,7 @@ public class GetReports200ResponseReportsInner {
   private String reportType = null;
 
   @SerializedName("reportExpiry")
-  private LocalDate reportExpiry = null;
+  private String reportExpiry = null;
 
   public GetReports200ResponseReportsInner reportId(UUID reportId) {
     this.reportId = reportId;
@@ -91,7 +92,7 @@ public class GetReports200ResponseReportsInner {
     this.reportType = reportType;
   }
 
-  public GetReports200ResponseReportsInner reportExpiry(LocalDate reportExpiry) {
+  public GetReports200ResponseReportsInner reportExpiry(String reportExpiry) {
     this.reportExpiry = reportExpiry;
     return this;
   }
@@ -101,11 +102,11 @@ public class GetReports200ResponseReportsInner {
    * @return reportExpiry
   **/
   @Schema(description = "The expiry date of your report. After this date, you will be unable to download your report. ")
-  public LocalDate getReportExpiry() {
+  public String getReportExpiry() {
     return reportExpiry;
   }
 
-  public void setReportExpiry(LocalDate reportExpiry) {
+  public void setReportExpiry(String reportExpiry) {
     this.reportExpiry = reportExpiry;
   }
 
