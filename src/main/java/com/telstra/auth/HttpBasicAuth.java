@@ -13,9 +13,7 @@
 package com.telstra.auth;
 
 import com.telstra.Pair;
-
-import com.squareup.okhttp.Credentials;
-
+import okhttp3.*;
 import java.util.Map;
 import java.util.List;
 

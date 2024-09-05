@@ -56,7 +56,7 @@ public class VirtualNumbersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call assignNumberCall(Object body, String contentLanguage, String accept, String acceptCharset, String contentType, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call assignNumberCall(Object body, String contentLanguage, String accept, String acceptCharset, String contentType, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -92,10 +92,10 @@ public class VirtualNumbersApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -108,7 +108,7 @@ public class VirtualNumbersApi {
     }
     
 
-    private com.squareup.okhttp.Call assignNumberValidateBeforeCall(Object body, String contentLanguage, String accept, String acceptCharset, String contentType, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call assignNumberValidateBeforeCall(Object body, String contentLanguage, String accept, String acceptCharset, String contentType, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling assignNumber(Async)");
@@ -130,7 +130,7 @@ public class VirtualNumbersApi {
             throw new ApiException("Missing the required parameter 'contentType' when calling assignNumber(Async)");
         }
         
-        com.squareup.okhttp.Call call = assignNumberCall(body, contentLanguage, accept, acceptCharset, contentType, telstraApiVersion, progressListener, progressRequestListener);
+        okhttp3.Call call = assignNumberCall(body, contentLanguage, accept, acceptCharset, contentType, telstraApiVersion, progressListener, progressRequestListener);
         return call;
     }
 
@@ -165,7 +165,7 @@ public class VirtualNumbersApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VirtualNumber> assignNumberWithHttpInfo(Object body, String contentLanguage, String accept, String acceptCharset, String contentType, String telstraApiVersion) throws ApiException {
-        com.squareup.okhttp.Call call = assignNumberValidateBeforeCall(body, contentLanguage, accept, acceptCharset, contentType, telstraApiVersion, null, null);
+        okhttp3.Call call = assignNumberValidateBeforeCall(body, contentLanguage, accept, acceptCharset, contentType, telstraApiVersion, null, null);
         Type localVarReturnType = new TypeToken<VirtualNumber>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -184,7 +184,7 @@ public class VirtualNumbersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call assignNumberAsync(Object body, String contentLanguage,  String accept, String acceptCharset, String contentType, String telstraApiVersion, final ApiCallback<VirtualNumber> callback) throws ApiException {
+    public okhttp3.Call assignNumberAsync(Object body, String contentLanguage,  String accept, String acceptCharset, String contentType, String telstraApiVersion, final ApiCallback<VirtualNumber> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -205,7 +205,7 @@ public class VirtualNumbersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = assignNumberValidateBeforeCall(body, contentLanguage, accept, acceptCharset, contentType, telstraApiVersion, progressListener, progressRequestListener);
+        okhttp3.Call call = assignNumberValidateBeforeCall(body, contentLanguage, accept, acceptCharset, contentType, telstraApiVersion, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<VirtualNumber>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -223,7 +223,7 @@ public class VirtualNumbersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteNumberCall(String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call deleteNumberCall(String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -260,10 +260,10 @@ public class VirtualNumbersApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -276,7 +276,7 @@ public class VirtualNumbersApi {
     }
     
 
-    private com.squareup.okhttp.Call deleteNumberValidateBeforeCall(String contentLanguage, String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call deleteNumberValidateBeforeCall(String contentLanguage, String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'contentLanguage' is set
         if (contentLanguage == null) {
             throw new ApiException("Missing the required parameter 'contentLanguage' when calling deleteNumber(Async)");
@@ -299,7 +299,7 @@ public class VirtualNumbersApi {
             throw new ApiException("Missing the required parameter 'virtualNumber' when calling deleteNumber(Async)");
         }
         
-        com.squareup.okhttp.Call call = deleteNumberCall(contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteNumberCall(contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, progressListener, progressRequestListener);
         return call;
 
         
@@ -337,7 +337,7 @@ public class VirtualNumbersApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> deleteNumberWithHttpInfo(String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion) throws ApiException {
-        com.squareup.okhttp.Call call = deleteNumberValidateBeforeCall(contentLanguage,  accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, null, null);
+        okhttp3.Call call = deleteNumberValidateBeforeCall(contentLanguage,  accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, null, null);
         return apiClient.execute(call);
     }
 
@@ -354,7 +354,7 @@ public class VirtualNumbersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteNumberAsync(String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ApiCallback<Void> callback) throws ApiException {
+    public okhttp3.Call deleteNumberAsync(String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -375,7 +375,7 @@ public class VirtualNumbersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteNumberValidateBeforeCall(contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, progressListener, progressRequestListener);
+        okhttp3.Call call = deleteNumberValidateBeforeCall(contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -394,7 +394,7 @@ public class VirtualNumbersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getNumbersCall(String contentLanguage,  String accept, String acceptCharset, String contentType, String telstraApiVersion, Integer limit, Integer offset, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getNumbersCall(String contentLanguage,  String accept, String acceptCharset, String contentType, String telstraApiVersion, Integer limit, Integer offset, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -436,10 +436,10 @@ public class VirtualNumbersApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -452,7 +452,7 @@ public class VirtualNumbersApi {
     }
     
 
-    private com.squareup.okhttp.Call getNumbersValidateBeforeCall(String contentLanguage,  String accept, String acceptCharset, String contentType, String telstraApiVersion, Integer limit, Integer offset, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getNumbersValidateBeforeCall(String contentLanguage,  String accept, String acceptCharset, String contentType, String telstraApiVersion, Integer limit, Integer offset, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'contentLanguage' is set
         if (contentLanguage == null) {
             throw new ApiException("Missing the required parameter 'contentLanguage' when calling getNumbers(Async)");
@@ -471,7 +471,7 @@ public class VirtualNumbersApi {
             throw new ApiException("Missing the required parameter 'contentType' when calling getNumbers(Async)");
         }
         
-        com.squareup.okhttp.Call call = getNumbersCall(contentLanguage,  accept, acceptCharset, contentType, telstraApiVersion, limit, offset, filter, progressListener, progressRequestListener);
+        okhttp3.Call call = getNumbersCall(contentLanguage,  accept, acceptCharset, contentType, telstraApiVersion, limit, offset, filter, progressListener, progressRequestListener);
         return call;
 
         
@@ -512,7 +512,7 @@ public class VirtualNumbersApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetNumbers200Response> getNumbersWithHttpInfo(String contentLanguage,  String accept, String acceptCharset, String contentType, String telstraApiVersion, Integer limit, Integer offset, String filter) throws ApiException {
-        com.squareup.okhttp.Call call = getNumbersValidateBeforeCall(contentLanguage, accept, acceptCharset, contentType, telstraApiVersion, limit, offset, filter, null, null);
+        okhttp3.Call call = getNumbersValidateBeforeCall(contentLanguage, accept, acceptCharset, contentType, telstraApiVersion, limit, offset, filter, null, null);
         Type localVarReturnType = new TypeToken<GetNumbers200Response>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -533,7 +533,7 @@ public class VirtualNumbersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getNumbersAsync(String contentLanguage, String authorization, String accept, String acceptCharset, String contentType, String telstraApiVersion, Integer limit, Integer offset, String filter, final ApiCallback<GetNumbers200Response> callback) throws ApiException {
+    public okhttp3.Call getNumbersAsync(String contentLanguage, String authorization, String accept, String acceptCharset, String contentType, String telstraApiVersion, Integer limit, Integer offset, String filter, final ApiCallback<GetNumbers200Response> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -554,7 +554,7 @@ public class VirtualNumbersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getNumbersValidateBeforeCall(contentLanguage,  accept, acceptCharset, contentType, telstraApiVersion, limit, offset, filter, progressListener, progressRequestListener);
+        okhttp3.Call call = getNumbersValidateBeforeCall(contentLanguage,  accept, acceptCharset, contentType, telstraApiVersion, limit, offset, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetNumbers200Response>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -574,7 +574,7 @@ public class VirtualNumbersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getRecipientOptoutsCall(String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, Integer limit, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getRecipientOptoutsCall(String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, Integer limit, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -616,10 +616,10 @@ public class VirtualNumbersApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -632,7 +632,7 @@ public class VirtualNumbersApi {
     }
     
 
-    private com.squareup.okhttp.Call getRecipientOptoutsValidateBeforeCall(String contentLanguage, String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, Integer limit, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getRecipientOptoutsValidateBeforeCall(String contentLanguage, String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, Integer limit, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'contentLanguage' is set
         if (contentLanguage == null) {
             throw new ApiException("Missing the required parameter 'contentLanguage' when calling getRecipientOptouts(Async)");
@@ -655,7 +655,7 @@ public class VirtualNumbersApi {
             throw new ApiException("Missing the required parameter 'virtualNumber' when calling getRecipientOptouts(Async)");
         }
         
-        com.squareup.okhttp.Call call = getRecipientOptoutsCall(contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, limit, offset, progressListener, progressRequestListener);
+        okhttp3.Call call = getRecipientOptoutsCall(contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, limit, offset, progressListener, progressRequestListener);
         return call;
 
         
@@ -699,7 +699,7 @@ public class VirtualNumbersApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetRecipientOptouts200Response> getRecipientOptoutsWithHttpInfo(String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, Integer limit, Integer offset) throws ApiException {
-        com.squareup.okhttp.Call call = getRecipientOptoutsValidateBeforeCall(contentLanguage,  accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, limit, offset, null, null);
+        okhttp3.Call call = getRecipientOptoutsValidateBeforeCall(contentLanguage,  accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, limit, offset, null, null);
         Type localVarReturnType = new TypeToken<GetRecipientOptouts200Response>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -720,7 +720,7 @@ public class VirtualNumbersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getRecipientOptoutsAsync(String contentLanguage, String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, Integer limit, Integer offset, final ApiCallback<GetRecipientOptouts200Response> callback) throws ApiException {
+    public okhttp3.Call getRecipientOptoutsAsync(String contentLanguage, String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, Integer limit, Integer offset, final ApiCallback<GetRecipientOptouts200Response> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -741,7 +741,7 @@ public class VirtualNumbersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getRecipientOptoutsValidateBeforeCall(contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, limit, offset, progressListener, progressRequestListener);
+        okhttp3.Call call = getRecipientOptoutsValidateBeforeCall(contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, limit, offset, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetRecipientOptouts200Response>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -759,7 +759,7 @@ public class VirtualNumbersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getVirtualNumberCall(String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getVirtualNumberCall(String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -796,10 +796,10 @@ public class VirtualNumbersApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -812,7 +812,7 @@ public class VirtualNumbersApi {
     }
     
 
-    private com.squareup.okhttp.Call getVirtualNumberValidateBeforeCall(String contentLanguage, String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getVirtualNumberValidateBeforeCall(String contentLanguage, String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'contentLanguage' is set
         if (contentLanguage == null) {
             throw new ApiException("Missing the required parameter 'contentLanguage' when calling getVirtualNumber(Async)");
@@ -834,7 +834,7 @@ public class VirtualNumbersApi {
             throw new ApiException("Missing the required parameter 'virtualNumber' when calling getVirtualNumber(Async)");
         }
         
-        com.squareup.okhttp.Call call = getVirtualNumberCall(contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, progressListener, progressRequestListener);
+        okhttp3.Call call = getVirtualNumberCall(contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, progressListener, progressRequestListener);
         return call;
 
         
@@ -874,7 +874,7 @@ public class VirtualNumbersApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VirtualNumber> getVirtualNumberWithHttpInfo(String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion) throws ApiException {
-        com.squareup.okhttp.Call call = getVirtualNumberValidateBeforeCall(contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, null, null);
+        okhttp3.Call call = getVirtualNumberValidateBeforeCall(contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, null, null);
         Type localVarReturnType = new TypeToken<VirtualNumber>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -893,7 +893,7 @@ public class VirtualNumbersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getVirtualNumberAsync(String contentLanguage, String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ApiCallback<VirtualNumber> callback) throws ApiException {
+    public okhttp3.Call getVirtualNumberAsync(String contentLanguage, String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ApiCallback<VirtualNumber> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -914,7 +914,7 @@ public class VirtualNumbersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getVirtualNumberValidateBeforeCall(contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, progressListener, progressRequestListener);
+        okhttp3.Call call = getVirtualNumberValidateBeforeCall(contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<VirtualNumber>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -933,7 +933,7 @@ public class VirtualNumbersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateNumberCall(Object body, String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call updateNumberCall(Object body, String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -970,10 +970,10 @@ public class VirtualNumbersApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -986,7 +986,7 @@ public class VirtualNumbersApi {
     }
     
 
-    private com.squareup.okhttp.Call updateNumberValidateBeforeCall(Object body, String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call updateNumberValidateBeforeCall(Object body, String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateNumber(Async)");
@@ -1013,7 +1013,7 @@ public class VirtualNumbersApi {
             throw new ApiException("Missing the required parameter 'virtualNumber' when calling updateNumber(Async)");
         }
         
-        com.squareup.okhttp.Call call = updateNumberCall(body, contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, progressListener, progressRequestListener);
+        okhttp3.Call call = updateNumberCall(body, contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, progressListener, progressRequestListener);
         return call;
 
         
@@ -1055,7 +1055,7 @@ public class VirtualNumbersApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VirtualNumber> updateNumberWithHttpInfo(Object body, String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion) throws ApiException {
-        com.squareup.okhttp.Call call = updateNumberValidateBeforeCall(body, contentLanguage,accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, null, null);
+        okhttp3.Call call = updateNumberValidateBeforeCall(body, contentLanguage,accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, null, null);
         Type localVarReturnType = new TypeToken<VirtualNumber>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1074,7 +1074,7 @@ public class VirtualNumbersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateNumberAsync(Object body, String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ApiCallback<VirtualNumber> callback) throws ApiException {
+    public okhttp3.Call updateNumberAsync(Object body, String contentLanguage,  String accept, String acceptCharset, String contentType, String virtualNumber, String telstraApiVersion, final ApiCallback<VirtualNumber> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1095,7 +1095,7 @@ public class VirtualNumbersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateNumberValidateBeforeCall(body, contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, progressListener, progressRequestListener);
+        okhttp3.Call call = updateNumberValidateBeforeCall(body, contentLanguage, accept, acceptCharset, contentType, virtualNumber, telstraApiVersion, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<VirtualNumber>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
