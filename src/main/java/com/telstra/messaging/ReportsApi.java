@@ -70,7 +70,7 @@ public class ReportsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getReportCall(String contentLanguage, String accept, String acceptCharset, String contentType, UUID reportId, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getReportCall(String contentLanguage, String accept, String acceptCharset, String contentType, UUID reportId, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -107,10 +107,10 @@ public class ReportsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -123,7 +123,7 @@ public class ReportsApi {
     }
     
 
-    private com.squareup.okhttp.Call getReportValidateBeforeCall(String contentLanguage, String accept, String acceptCharset, String contentType, UUID reportId, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getReportValidateBeforeCall(String contentLanguage, String accept, String acceptCharset, String contentType, UUID reportId, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'contentLanguage' is set
         if (contentLanguage == null) {
             throw new ApiException("Missing the required parameter 'contentLanguage' when calling getReport(Async)");
@@ -145,7 +145,7 @@ public class ReportsApi {
             throw new ApiException("Missing the required parameter 'reportId' when calling getReport(Async)");
         }
         
-        com.squareup.okhttp.Call call = getReportCall(contentLanguage, accept, acceptCharset, contentType, reportId, telstraApiVersion, progressListener, progressRequestListener);
+        okhttp3.Call call = getReportCall(contentLanguage, accept, acceptCharset, contentType, reportId, telstraApiVersion, progressListener, progressRequestListener);
         return call;
 
     }
@@ -181,7 +181,7 @@ public class ReportsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetReportId200Response> getReportWithHttpInfo(String contentLanguage, String accept, String acceptCharset, String contentType, UUID reportId, String telstraApiVersion) throws ApiException {
-        com.squareup.okhttp.Call call = getReportValidateBeforeCall(contentLanguage, accept, acceptCharset, contentType, reportId, telstraApiVersion, null, null);
+        okhttp3.Call call = getReportValidateBeforeCall(contentLanguage, accept, acceptCharset, contentType, reportId, telstraApiVersion, null, null);
         Type localVarReturnType = new TypeToken<GetReportId200Response>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -199,7 +199,7 @@ public class ReportsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getReportAsync(String contentLanguage,  String accept, String acceptCharset, String contentType, UUID reportId, String telstraApiVersion, final ApiCallback<GetReportId200Response> callback) throws ApiException {
+    public okhttp3.Call getReportAsync(String contentLanguage,  String accept, String acceptCharset, String contentType, UUID reportId, String telstraApiVersion, final ApiCallback<GetReportId200Response> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -220,7 +220,7 @@ public class ReportsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getReportValidateBeforeCall(contentLanguage, accept, acceptCharset, contentType, reportId, telstraApiVersion, progressListener, progressRequestListener);
+        okhttp3.Call call = getReportValidateBeforeCall(contentLanguage, accept, acceptCharset, contentType, reportId, telstraApiVersion, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetReportId200Response>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -237,7 +237,7 @@ public class ReportsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getReportsCall(String contentLanguage, String accept, String acceptCharset, String contentType, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getReportsCall(String contentLanguage, String accept, String acceptCharset, String contentType, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -273,10 +273,10 @@ public class ReportsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -289,7 +289,7 @@ public class ReportsApi {
     }
     
 
-    private com.squareup.okhttp.Call getReportsValidateBeforeCall(String contentLanguage, String accept, String acceptCharset, String contentType, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getReportsValidateBeforeCall(String contentLanguage, String accept, String acceptCharset, String contentType, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'contentLanguage' is set
         if (contentLanguage == null) {
             throw new ApiException("Missing the required parameter 'contentLanguage' when calling getReports(Async)");
@@ -308,7 +308,7 @@ public class ReportsApi {
             throw new ApiException("Missing the required parameter 'contentType' when calling getReports(Async)");
         }
         
-        com.squareup.okhttp.Call call = getReportsCall(contentLanguage, accept, acceptCharset, contentType, telstraApiVersion, progressListener, progressRequestListener);
+        okhttp3.Call call = getReportsCall(contentLanguage, accept, acceptCharset, contentType, telstraApiVersion, progressListener, progressRequestListener);
         return call;
     }
 
@@ -341,7 +341,7 @@ public class ReportsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetReports200Response> getReportsWithHttpInfo(String contentLanguage, String accept, String acceptCharset, String contentType, String telstraApiVersion) throws ApiException {
-        com.squareup.okhttp.Call call = getReportsValidateBeforeCall(contentLanguage,  accept, acceptCharset, contentType, telstraApiVersion, null, null);
+        okhttp3.Call call = getReportsValidateBeforeCall(contentLanguage,  accept, acceptCharset, contentType, telstraApiVersion, null, null);
         Type localVarReturnType = new TypeToken<GetReports200Response>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -358,7 +358,7 @@ public class ReportsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getReportsAsync(String contentLanguage,  String accept, String acceptCharset, String contentType, String telstraApiVersion, final ApiCallback<GetReports200Response> callback) throws ApiException {
+    public okhttp3.Call getReportsAsync(String contentLanguage,  String accept, String acceptCharset, String contentType, String telstraApiVersion, final ApiCallback<GetReports200Response> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -379,7 +379,7 @@ public class ReportsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getReportsValidateBeforeCall(contentLanguage,accept, acceptCharset, contentType, telstraApiVersion, progressListener, progressRequestListener);
+        okhttp3.Call call = getReportsValidateBeforeCall(contentLanguage,accept, acceptCharset, contentType, telstraApiVersion, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetReports200Response>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -397,7 +397,7 @@ public class ReportsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call messagesReportCall(ReportsMessagesBody body, String contentLanguage, String accept, String acceptCharset, String contentType, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call messagesReportCall(ReportsMessagesBody body, String contentLanguage, String accept, String acceptCharset, String contentType, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
@@ -433,10 +433,10 @@ public class ReportsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -449,7 +449,7 @@ public class ReportsApi {
     }
     
 
-    private com.squareup.okhttp.Call messagesReportValidateBeforeCall(ReportsMessagesBody body, String contentLanguage, String accept, String acceptCharset, String contentType, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call messagesReportValidateBeforeCall(ReportsMessagesBody body, String contentLanguage, String accept, String acceptCharset, String contentType, String telstraApiVersion, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling messagesReport(Async)");
@@ -472,7 +472,7 @@ public class ReportsApi {
             throw new ApiException("Missing the required parameter 'contentType' when calling messagesReport(Async)");
         }
         
-        com.squareup.okhttp.Call call = messagesReportCall(body, contentLanguage,  accept, acceptCharset, contentType, telstraApiVersion, progressListener, progressRequestListener);
+        okhttp3.Call call = messagesReportCall(body, contentLanguage,  accept, acceptCharset, contentType, telstraApiVersion, progressListener, progressRequestListener);
         return call;
         
     }
@@ -508,7 +508,7 @@ public class ReportsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetReports201Response> messagesReportWithHttpInfo(ReportsMessagesBody body, String contentLanguage, String accept, String acceptCharset, String contentType, String telstraApiVersion) throws ApiException {
-        com.squareup.okhttp.Call call = messagesReportValidateBeforeCall(body, contentLanguage, accept, acceptCharset, contentType, telstraApiVersion, null, null);
+        okhttp3.Call call = messagesReportValidateBeforeCall(body, contentLanguage, accept, acceptCharset, contentType, telstraApiVersion, null, null);
         Type localVarReturnType = new TypeToken<GetReports201Response>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -526,7 +526,7 @@ public class ReportsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call messagesReportAsync(ReportsMessagesBody body, String contentLanguage, String accept, String acceptCharset, String contentType, String telstraApiVersion, final ApiCallback<GetReports201Response> callback) throws ApiException {
+    public okhttp3.Call messagesReportAsync(ReportsMessagesBody body, String contentLanguage, String accept, String acceptCharset, String contentType, String telstraApiVersion, final ApiCallback<GetReports201Response> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -547,7 +547,7 @@ public class ReportsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = messagesReportValidateBeforeCall(body, contentLanguage, accept, acceptCharset, contentType, telstraApiVersion, progressListener, progressRequestListener);
+        okhttp3.Call call = messagesReportValidateBeforeCall(body, contentLanguage, accept, acceptCharset, contentType, telstraApiVersion, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetReports201Response>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
